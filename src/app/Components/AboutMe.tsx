@@ -26,18 +26,15 @@ const AboutMe: React.FC = () => (
 					<section className="absolute h-screen w-screen  text-center">
 						<div className="flex h-screen w-screen flex-row bg-white px-10 py-24  max-md:flex-col">
 							<div className="">
-								<p className="">
-									<br />
-									<h1>SAMIP SHARMA</h1>
-									<br />I am a full-stack web developer contributing to this
-									growing tech industry by using my hard and soft skills to
-									provide innovation in technical solutions and outcomes. One of
-									my greatest passions is technology and building new products
-									and tools that people will use and love. I completed my
-									bachelor&apos;s degree in civil engineering, which helps me
-									think technically, solve problems critically, work with teams,
-									and face new challenges every day.
-								</p>
+								<h1>SAMIP SHARMA</h1>
+								<br />I am a full-stack web developer contributing to this
+								growing tech industry by using my hard and soft skills to
+								provide innovation in technical solutions and outcomes. One of
+								my greatest passions is technology and building new products and
+								tools that people will use and love. I completed my
+								bachelor&apos;s degree in civil engineering, which helps me
+								think technically, solve problems critically, work with teams,
+								and face new challenges every day.
 								<MyInfoLinks />
 							</div>
 
