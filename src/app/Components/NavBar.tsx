@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { Component, useEffect } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import NavItem from "./NavItem";
 import clsx from "clsx";
 import "../app.css";
@@ -22,7 +22,7 @@ const NavBar: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
 	return (
-		<nav className="h-20 p-4">
+		<nav className="sticky top-0 z-50 h-20 bg-white p-4 shadow-md dark:bg-black">
 			<div className="0 flex flex-row items-center justify-between ">
 				<a href="#">
 					<Image
@@ -30,16 +30,16 @@ const NavBar: React.FC = () => {
 						height={50}
 						src="/logo.png"
 						alt="logo"
-						className="mt-0"
+						className="mt-0 rounded-full"
 					/>
 				</a>
 				<div
 					className="center z-50 mr-3  flex flex-col justify-center sm:hidden"
 					onClick={handleHamburgerClick}
 				>
-					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600" />
-					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600" />
-					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600" />
+					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600 dark:bg-slate-50" />
+					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600 dark:bg-slate-50" />
+					<div className="m-0.5 h-1 w-[1.9rem] bg-gray-600 dark:bg-slate-50" />
 				</div>
 				<div
 					className={clsx(
