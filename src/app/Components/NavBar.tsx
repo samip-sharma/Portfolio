@@ -22,7 +22,7 @@ const NavBar: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
 	return (
-		<nav className="sticky top-0 z-50 h-20 bg-white p-4 shadow-md dark:bg-black">
+		<nav className="sticky top-0 z-50 h-20 bg-white p-4 shadow-md dark:bg-black dark:shadow-white">
 			<div className="0 flex flex-row items-center justify-between ">
 				<a href="#">
 					<Image
@@ -62,15 +62,15 @@ export default NavBar;
 const navItems = [
 	{
 		name: "About Me",
-		src: "test",
+		src: "aboutme",
 	},
 	{
-		name: "Projects",
-		src: "",
+		name: "Experience",
+		src: "experience",
 	},
 	{
 		name: "Skills",
-		src: "",
+		src: "skills",
 	},
-	{ name: "Contact Me", src: "" },
+	{ name: "Contact Me", src: "contactme" },
 ];

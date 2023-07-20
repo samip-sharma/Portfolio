@@ -5,7 +5,7 @@ const ChatBot: React.FC = () => {
 	const [messages, setMessages] = React.useState<ChatMessage[]>([]);
 	const [isLoading, setIsLoading] = React.useState(false);
 
-	const handleUserMessage = (message: string) => {
+	const handleUserMessage = async (message: string) => {
 		const newMessage: ChatMessage[] = [
 			...messages,
 			{
@@ -16,23 +16,22 @@ const ChatBot: React.FC = () => {
 		];
 		setMessages(newMessage);
 
-		callGpt(message)
-			.then(({ result }) => {
-				const responseMessage: ChatMessage = {
-					id: messages.length + 1,
-					text: result.content,
-					isUserMessage: false,
-				};
-				setMessages([...newMessage, responseMessage]);
-			})
-			.catch(() => {
-				const responseMessage: ChatMessage = {
-					id: messages.length + 1,
-					text: `Oh, wonderful! It seems that the battery in the Neuralink chip installed on the real Samip Sharma's brain is currently charging. Can you please try that again?`,
-					isUserMessage: false,
-				};
-				setMessages([...newMessage, responseMessage]);
-			});
+		try {
+			const { result } = await callGpt();
+			const responseMessage: ChatMessage = {
+				id: messages.length + 1,
+				text: result.content,
+				isUserMessage: false,
+			};
+			setMessages([...newMessage, responseMessage]);
+		} catch {
+			const responseMessage: ChatMessage = {
+				id: messages.length + 1,
+				text: `Oh, wonderful! It seems that the battery in the Neuralink chip installed on the real Samip Sharma's brain is currently charging. Can you please try that again?`,
+				isUserMessage: false,
+			};
+			setMessages([...newMessage, responseMessage]);
+		}
 	};
 
 	const callGpt = async (message: string) => {

@@ -61,7 +61,10 @@ const ContactForm = () => {
 	};
 
 	return (
-		<section className="flex h-screen flex-col items-center justify-center py-32">
+		<section
+			id="contactme"
+			className="flex h-screen flex-col items-center justify-center py-32"
+		>
 			<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
 			<form
 				onSubmit={handleSubmit}

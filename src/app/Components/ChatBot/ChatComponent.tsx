@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import clsx from "clsx";
 import TypingIndicator from "./TypingIndicator";
 
@@ -10,9 +10,8 @@ export interface ChatMessage {
 
 interface ChatComponentProps {
 	messages: ChatMessage[];
-	onUserMessage: (message: string) => void;
+	onUserMessage: (message: string) => Promise<void>;
 	isLoading: boolean;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ChatMessageProps {
@@ -20,23 +19,25 @@ interface ChatMessageProps {
 }
 
 const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
-	const messageClass = clsx("align-text-left rounded-lg p-2 m-2 max-w-xs", {
-		"bg-[rgba(255,70,38,0.8)] text-white": !message.isUserMessage,
-		"bg-gray-200": message.isUserMessage,
-		"self-end": !message.isUserMessage,
-		"self-start": message.isUserMessage,
-	});
-
-	return <div className={messageClass}>{message.text}</div>;
+	return (
+		<div
+			className={clsx("m-2 max-w-[75%] rounded-lg p-2 text-left", {
+				"self-start bg-gray-200": !message.isUserMessage,
+				"self-end bg-[rgba(255,70,38,0.8)] text-white": message.isUserMessage,
+			})}
+		>
+			{message.text}
+		</div>
+	);
 };
 
 const ChatComponent: React.FC<ChatComponentProps> = ({
 	messages,
 	onUserMessage,
 	isLoading,
-	setIsLoading,
 }) => {
 	const [userMessage, setUserMessage] = React.useState("");
+	const chatListRef = useRef<HTMLDivElement>(null);
 
 	const handleUserMessageChange = (
 		event: React.ChangeEvent<HTMLInputElement>,
@@ -44,18 +45,22 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 		setUserMessage(event.target.value);
 	};
 
-	const handleUserMessageSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleUserMessageSubmit = async (
+		event: React.FormEvent<HTMLFormElement>,
+	) => {
 		event.preventDefault();
-		if (userMessage.trim() !== "") {
-			setIsLoading(true);
-			onUserMessage(userMessage);
-			setUserMessage("");
-		}
+
+		await onUserMessage(userMessage);
+
+		setUserMessage("");
 	};
 
 	return (
-		<div className="flex h-[60%] flex-col rounded-3xl bg-[rgb(234,212,194)] ">
-			<div className="h-[70%] flex-1  overflow-auto p-4">
+		<div className="flex h-[60%] w-[32rem] flex-col rounded-lg bg-[rgb(234,212,194)] dark:bg-[rgb(27,29,33)]">
+			<div
+				ref={chatListRef}
+				className="flex h-[70%] flex-1 flex-col overflow-auto p-4"
+			>
 				{messages.map((message) => (
 					<ChatMessage key={message.id} message={message} />
 				))}
@@ -74,9 +79,16 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 					placeholder="Type your message..."
 					value={userMessage}
 					onChange={handleUserMessageChange}
-					className="hover:border-outline-[rgba(255,70,38,0.8)] w-full rounded-md py-2 pl-2 pr-5 hover:border-2"
+					className="peer/message w-full rounded-md border-2 border-solid border-gray-300 py-2 pl-2 pr-5 opacity-70 outline-none hover:opacity-100 focus:border-[rgba(255,70,38,0.8)]"
 				/>
-				<i className="fa-regular fa fa-paper-plane  absolute right-7 top-7 text-[rgba(255,70,38,0.8)]"></i>
+				<button className="absolute right-7 top-7 text-gray-300 peer-focus/message:text-[rgba(255,70,38,0.8)]">
+					<i
+						className={clsx(
+							"fa fa-paper-plane",
+							userMessage.trim() ? "fa-solid" : "fa-regular",
+						)}
+					/>
+				</button>
 			</form>
 		</div>
 	);
