@@ -14,17 +14,17 @@ const AboutMe: React.FC = () => (
 		<Scene triggerHook="onLeave" duration="100%" pin>
 			<Timeline wrapper={<div className="h-screen w-screen overflow-hidden" />}>
 				<section className="absolute h-screen w-screen text-center">
-					<div className="relative flex h-screen flex-row justify-between max-sm:flex-col">
+					<div className="relative flex h-screen flex-1 flex-row justify-between max-sm:flex-col">
 						<SvgLaptopMan />
-						<div className="flex w-1/2 flex-col items-center justify-center">
+						<div className="tweenBackground flex w-[50%] flex-col items-center justify-center bg-[rgb(231,138,61)] dark:bg-black">
 							<AnimatedTypingComponent />
 							<ChatBot />
 						</div>
 					</div>
 				</section>
 				<Tween from={{ x: "-100%" }} to={{ x: "0%" }}>
-					<section className="absolute h-screen w-screen  text-center">
-						<div className="flex h-screen w-screen flex-row bg-white px-10 py-24  max-md:flex-col">
+					<section className="absolute  h-screen w-screen bg-[rgb(68,112,224)] text-center">
+						<div className="relative flex h-screen w-screen flex-row  px-10 py-24  max-md:flex-col">
 							<div className="">
 								<h1>SAMIP SHARMA</h1>
 								<br />I am a full-stack web developer contributing to this

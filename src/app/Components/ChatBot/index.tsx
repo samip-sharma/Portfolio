@@ -54,14 +54,12 @@ const ChatBot: React.FC = () => {
 	};
 
 	return (
-		<div>
-			<ChatComponent
-				messages={messages}
-				onUserMessage={handleUserMessage}
-				isLoading={isLoading}
-				setIsLoading={setIsLoading}
-			/>
-		</div>
+		<ChatComponent
+			messages={messages}
+			onUserMessage={handleUserMessage}
+			isLoading={isLoading}
+			setIsLoading={setIsLoading}
+		/>
 	);
 };
 

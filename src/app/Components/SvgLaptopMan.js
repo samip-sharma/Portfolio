@@ -25,12 +25,7 @@ export default class SvgLaptopMan extends React.Component {
 	};
 	componentDidMount() {
 		this.myTween
-			.to(
-				".laptop-man, .panel.blue",
-				0.7,
-				{ background: "rgb(231,	138,	61	)" },
-				0.1,
-			)
+			// .to(".laptop-man", 0.7, { background: "rgb(231,138,61)" }, 0.1)
 			.to(".cloud", 0.7, { fill: "rgb(227,125,58)" }, 0.1)
 			.to("#window-four path", 0.5, { fill: "rgb(58,139,209)" }, 0.1)
 			.to("#Vector_82", 0.7, { fill: "rgb(242,187,90)" }, 0.1);
@@ -43,15 +38,14 @@ export default class SvgLaptopMan extends React.Component {
 
 	render() {
 		return (
-			<div className="svg-image-container flex flex-1">
+			<div className="svg-image-container">
 				<svg
-					className="laptop-man"
+					className="laptop-man bg-[rgb(231,138,61)] fill-[rgb(231,138,61)] dark:bg-black dark:fill-black"
 					style={{ cursor: "pointer" }}
 					onClick={this.handleSvgClick}
 					width="100%"
 					height="100%"
 					viewBox="0 -100 1528 1147"
-					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<g id="undraw_back_home_nl5c 1">
@@ -598,8 +592,8 @@ export default class SvgLaptopMan extends React.Component {
 									id="Vector_104"
 									d="M769.5 834.326C783.307 834.326 794.5 823.133 794.5 809.326C794.5 795.519 783.307 784.326 769.5 784.326C755.693 784.326 744.5 795.519 744.5 809.326C744.5 823.133 755.693 834.326 769.5 834.326Z"
 									stroke="#D0CDE1"
-									strokeWidth="2"
-									strokeMiterlimit="10"
+									stroke-width="2"
+									stroke-miterlimit="10"
 								/>
 								<path
 									id="Vector_105"

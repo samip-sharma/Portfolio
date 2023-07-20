@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 
 const AnimatedTypingComponent = () => {
 	return (
-		<div className="animated-typing-component">
+		<div className="mb-5 h-[5%]">
 			<Typewriter
 				onInit={(typewriter) => {
 					typewriter

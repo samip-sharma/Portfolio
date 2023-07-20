@@ -20,8 +20,8 @@ interface ChatMessageProps {
 }
 
 const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
-	const messageClass = clsx("rounded-lg p-2 m-2 max-w-xs", {
-		"bg-blue-500 text-white": !message.isUserMessage,
+	const messageClass = clsx("align-text-left rounded-lg p-2 m-2 max-w-xs", {
+		"bg-[rgba(255,70,38,0.8)] text-white": !message.isUserMessage,
 		"bg-gray-200": message.isUserMessage,
 		"self-end": !message.isUserMessage,
 		"self-start": message.isUserMessage,
@@ -54,8 +54,8 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 	};
 
 	return (
-		<div className="flex h-full flex-col">
-			<div className="p-4">
+		<div className="flex h-[60%] flex-col rounded-3xl bg-[rgb(234,212,194)] ">
+			<div className="h-[70%] flex-1  overflow-auto p-4">
 				{messages.map((message) => (
 					<ChatMessage key={message.id} message={message} />
 				))}
@@ -65,20 +65,18 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 					</div>
 				)}
 			</div>
-			<form onSubmit={handleUserMessageSubmit} className="bg-gray-100 p-4">
+			<form
+				onSubmit={handleUserMessageSubmit}
+				className="relative h-20 items-center  justify-center p-4"
+			>
 				<input
 					type="text"
 					placeholder="Type your message..."
 					value={userMessage}
 					onChange={handleUserMessageChange}
-					className="w-full rounded-md p-2"
+					className="hover:border-outline-[rgba(255,70,38,0.8)] w-full rounded-md py-2 pl-2 pr-5 hover:border-2"
 				/>
-				<button
-					type="submit"
-					className="mt-2 rounded-md bg-blue-500 px-4 py-2 text-white"
-				>
-					Send
-				</button>
+				<i className="fa-regular fa fa-paper-plane  absolute right-7 top-7 text-[rgba(255,70,38,0.8)]"></i>
 			</form>
 		</div>
 	);

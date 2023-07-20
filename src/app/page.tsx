@@ -6,7 +6,7 @@ import "font-awesome/css/font-awesome.min.css";
 import ContactForm from "./Components/ContactForm";
 
 const App: React.FC = () => {
-	const [theme, setTheme] = useState<"light" | "">("light");
+	const [theme, setTheme] = useState<"light" | "dark">("light");
 	return (
 		<div className={theme}>
 			<NavBar />

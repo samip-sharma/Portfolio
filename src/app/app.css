@@ -22,3 +22,74 @@
 		pointer-events: all;
 	}
 }
+
+/* svg animation */
+.laptop-man {
+	max-width: 100%;
+}
+
+/* hands */
+#hands-svg {
+	animation: hands 1s ease-in-out infinite alternate;
+	transform-origin: center;
+}
+@keyframes hands {
+	0% {
+		transform: rotate(-1deg);
+	}
+	60% {
+		transform: rotate(1deg) scaleY(1.04);
+	}
+	100% {
+		transform: rotate(1deg);
+	}
+}
+
+/* flowers */
+#Vector_114,
+#Vector_117 {
+	animation: flowers1 1s ease-in-out infinite alternate;
+	transform-origin: bottom;
+	transform-box: fill-box;
+}
+
+#Vector_116,
+#Vector_115 {
+	animation: flowers2 1s ease-in-out infinite alternate;
+	transform-origin: bottom;
+	transform-box: fill-box;
+}
+
+@keyframes flowers1 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(5deg);
+	}
+}
+
+@keyframes flowers2 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-5deg);
+	}
+}
+
+/* clouds */
+
+.cloud {
+	animation: cloud 10s ease-in-out infinite;
+	transform-origin: center;
+}
+
+@keyframes cloud {
+	from {
+		transform: translateX(-38%);
+	}
+	to {
+		transform: translateX(+35%);
+	}
+}
