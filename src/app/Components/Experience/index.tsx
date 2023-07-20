@@ -57,7 +57,7 @@ const experiences = [
 
 const Experience = () => {
 	return (
-		<section className="p-10">
+		<section id="experience" className="h-screen p-10">
 			<h1 className="text-4xl font-bold">Experience</h1>
 			{experiences.map((item) => {
 				return <ExperienceCard {...item} />;

@@ -17,7 +17,7 @@ const ChatBot: React.FC = () => {
 		setMessages(newMessage);
 
 		try {
-			const { result } = await callGpt();
+			const { result } = await callGpt(message);
 			const responseMessage: ChatMessage = {
 				id: messages.length + 1,
 				text: result.content,
