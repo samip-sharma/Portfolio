@@ -1,14 +1,12 @@
 import React, { FormEvent, useState } from "react";
+import List from "./List";
+import SubHeading from "./SubHeading";
 
 const Tools: React.FC<{ tools: string[] }> = ({ tools }) => {
 	return (
 		<div className="flex flex-col">
-			<h2>TOOLS</h2>
-			<div className="flex flex-col">
-				{tools.map((item) => {
-					return <p>{item}</p>;
-				})}
-			</div>
+			<SubHeading heading="TOOLS" />
+			<List list={tools}></List>
 		</div>
 	);
 };

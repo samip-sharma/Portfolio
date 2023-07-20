@@ -21,19 +21,19 @@ const ExperienceCard: React.FC<ExperienceProps> = ({
 	tools,
 }) => {
 	return (
-		<div>
-			<div>
-				<h4>{company}</h4>
+		<div className="">
+			<div className="my-5 flex flex-row gap-7">
+				<h4 className="font-bold">{company}</h4>
 				<p>{date}</p>
 			</div>
-			<div className="flex flex-row">
+			<div className="mt-5 flex flex-row justify-around">
 				<div className="basis-1/2">{description}</div>
-				<div className="flex flex-row">
+				<div className="flex basis-1/2 flex-row  justify-around">
 					<div className="flex flex-col">
-						<div className="basis-1/2">
+						<div className="">
 							<Role role={role} />
 						</div>
-						<div className="basis-1/2">
+						<div className="my-5">
 							<Responsibilities list={responsibilities} />
 						</div>
 					</div>

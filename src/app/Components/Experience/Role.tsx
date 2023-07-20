@@ -1,9 +1,10 @@
 import React, { FormEvent, useState } from "react";
+import SubHeading from "./SubHeading";
 
 const Role: React.FC<{ role: string }> = ({ role }) => {
 	return (
 		<div>
-			<h1>Role</h1>
+			<SubHeading heading="ROLE" />
 			{role}
 		</div>
 	);

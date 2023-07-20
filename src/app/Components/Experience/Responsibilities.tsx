@@ -1,14 +1,12 @@
 import React from "react";
+import List from "./List";
+import SubHeading from "./SubHeading";
 
 const Responsibilities: React.FC<{ list: string[] }> = ({ list }) => {
 	return (
 		<div className="flex flex-col">
-			<h2>RESPONSIBILITIESs</h2>
-			<div className="flex flex-col">
-				{list.map((item) => {
-					return <div>{item}</div>;
-				})}
-			</div>
+			<SubHeading heading="RESPONSIBILITIES" />
+			<List list={list}></List>
 		</div>
 	);
 };
