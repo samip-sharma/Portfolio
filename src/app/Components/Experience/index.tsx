@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from "react";
 import ExperienceCard from "./ExperienceCard";
 import { Controller, Scene } from "react-scrollmagic";
+import { Tween, Timeline } from "react-gsap";
+import clsx from "clsx";
 
 const experiences = [
 	{
@@ -58,14 +60,50 @@ const experiences = [
 
 const Experience = () => {
 	return (
-		<section id="experience" className="h-screen p-10">
-			{/* <div className="h-screen" /> */}
-			<div id="trigger" />
-			<div className="section" />
-			<h1 className="text-4xl font-bold">Experience</h1>
-			{experiences.map((item) => {
-				return <ExperienceCard {...item} />;
-			})}
+		<section id="experience" className="h-screen overflow-hidden p-10">
+			<Controller>
+				{/* triggerHook: is when the animatin triggers 0-1 | ‘onLeave’, ‘onEnter’ or ‘onCenter */}
+				{/* opffset prop can be set to further define exactly when your scroll animation will begin */}
+				{/* Duration will define how long the animation occurs it can be on pixel as well eg. 400 */}
+				<Scene>
+					<h1 className="text-4xl font-bold">Experience</h1>
+				</Scene>
+				{experiences.map((item, i) => {
+					return (
+						<div>
+							<Scene
+								triggerElement={`#${item.company}`}
+								indicators={true}
+								// triggerHook="0.2"
+								// offset={(i + 1) * 90}
+								duration="200"
+								// pin={true}
+							>
+								{(progress: number) => (
+									<Timeline
+										wrapper={<div className="my-10 overflow-hidden" />}
+										paused
+									>
+										<Tween
+											from={{ height: 90 }}
+											to={{ height: 400 }}
+											totalProgress={progress}
+										>
+											<div
+												id={item.company}
+												className="items-center rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
+											>
+												<ExperienceCard {...item} />
+											</div>
+										</Tween>
+										<Tween from={{ height: 500 }} to={{ height: 90 }} />
+									</Timeline>
+								)}
+							</Scene>
+						</div>
+					);
+				})}
+			</Controller>
 		</section>
 	);
 };

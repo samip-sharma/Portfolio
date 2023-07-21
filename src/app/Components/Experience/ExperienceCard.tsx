@@ -21,7 +21,7 @@ const ExperienceCard: React.FC<ExperienceProps> = ({
 	tools,
 }) => {
 	return (
-		<div className="">
+		<div>
 			<div className="my-5 flex flex-row gap-7">
 				<h4 className="font-bold">{company}</h4>
 				<p>{date}</p>
