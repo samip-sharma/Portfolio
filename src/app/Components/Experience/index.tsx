@@ -59,29 +59,8 @@ const experiences = [
 const Experience = () => {
 	return (
 		<section id="experience" className="h-screen p-10">
-			<div className="section" />
+			{/* <div className="h-screen" /> */}
 			<div id="trigger" />
-			<Controller>
-				<Scene
-					duration={200}
-					classToggle="zap"
-					triggerElement="#trigger"
-					indicators={true}
-				>
-					{(progress, event) => (
-						<div className="test">
-							Pin Test {event.type} {progress}
-						</div>
-					)}
-				</Scene>
-				<Scene
-					classToggle={[".test", "yellow"]}
-					reverse={false}
-					indicators={true}
-				>
-					<div>Toggle other class</div>
-				</Scene>
-			</Controller>
 			<div className="section" />
 			<h1 className="text-4xl font-bold">Experience</h1>
 			{experiences.map((item) => {

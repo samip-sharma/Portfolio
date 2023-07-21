@@ -10,8 +10,8 @@ import AnimatedTypingComponent from "./AnimatedTypingComponent";
 import ChatBot from "./ChatBot";
 
 const AboutMe: React.FC = () => (
-	<div id="aboutme" className="-mt-20 box-border w-screen">
-		<div className=" h-20"></div>
+	<div id="aboutme" className="box-border w-screen">
+		{/* <div className="-mt-20 h-20 "></div> */}
 		<Controller>
 			<Scene triggerHook="onLeave" duration="100%" pin>
 				<Timeline
@@ -27,7 +27,7 @@ const AboutMe: React.FC = () => (
 						</div>
 					</section>
 					<Tween from={{ x: "-100%" }} to={{ x: "0%" }}>
-						<section className="absolute  h-screen w-screen overflow-hidden bg-[rgb(68,112,224)] text-center">
+						<section className="dark:bg[rgb(35,42,65)] absolute  h-screen w-screen overflow-hidden bg-[rgb(68,112,224)] text-center dark:text-white">
 							<div className="relative flex h-screen  flex-row  px-10 py-24  max-md:flex-col">
 								<div className="">
 									<h1>SAMIP SHARMA</h1>

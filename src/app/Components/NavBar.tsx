@@ -7,17 +7,8 @@ import clsx from "clsx";
 import "../app.css";
 
 const NavBar: React.FC = () => {
-	const scrollToTop = () => {
-		//scroll to top
-	};
-
 	const handleHamburgerClick = () => {
 		setIsMenuOpen(!isMenuOpen);
-	};
-
-	const handleLinksClick = () => {
-		const navLinks = document.querySelector(".nav-items");
-		navLinks?.classList.toggle("open");
 	};
 
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -26,7 +17,10 @@ const NavBar: React.FC = () => {
 		<nav className="sticky top-0 z-50 flex items-center bg-white p-4 shadow-md dark:bg-black dark:shadow-white">
 			<div className="absolute -top-52 left-0 z-0 h-52 w-screen bg-white" />
 			<div className="flex items-center justify-between">
-				<a href="#" className="mr-4 whitespace-nowrap font-sacramento text-3xl">
+				<a
+					href="#"
+					className="mr-14 whitespace-nowrap font-sacramento text-3xl"
+				>
 					Samip Sharma
 				</a>
 				<div
