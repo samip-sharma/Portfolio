@@ -9,6 +9,7 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			raleway: ["Raleway", "sans-serif"],
+			sacramento: ["Sacramento", "cursive", "sans-serif"],
 		},
 		extend: {
 			backgroundImage: {

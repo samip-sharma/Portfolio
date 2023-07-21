@@ -15,7 +15,7 @@ const NavItem: React.FC<NavItemProps> = ({ name, src }) => {
 		<a
 			onClick={handleLinkClick}
 			href={`#${src}`}
-			className="cursor-pointer font-raleway dark:text-white"
+			className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
 		>
 			{name}
 		</a>

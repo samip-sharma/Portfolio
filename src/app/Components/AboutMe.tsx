@@ -10,7 +10,8 @@ import AnimatedTypingComponent from "./AnimatedTypingComponent";
 import ChatBot from "./ChatBot";
 
 const AboutMe: React.FC = () => (
-	<div id="aboutme">
+	<div id="aboutme" className="-mt-20 box-border w-screen">
+		<div className=" h-20"></div>
 		<Controller>
 			<Scene triggerHook="onLeave" duration="100%" pin>
 				<Timeline
