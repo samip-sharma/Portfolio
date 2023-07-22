@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import * as emailjs from "@emailjs/browser";
+import Screen from "./Screen";
 
 interface FormProps {
 	name?: string;
@@ -61,9 +62,9 @@ const ContactForm = () => {
 	};
 
 	return (
-		<section
+		<Screen
 			id="contactme"
-			className="flex h-screen flex-col items-center justify-center py-32"
+			classNames="flex flex-col items-center justify-center"
 		>
 			<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
 			<form
@@ -135,7 +136,7 @@ const ContactForm = () => {
 					</>
 				)}
 			</form>
-		</section>
+		</Screen>
 	);
 };
 
