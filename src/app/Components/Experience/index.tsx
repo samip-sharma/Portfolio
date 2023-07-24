@@ -124,65 +124,72 @@ const Experience = () => {
 			// }).to(card[0], { height: 20 });
 			// // });
 
-			gsap.utils.toArray(".experience-card").forEach((card, i) => {});
+			// gsap.utils.toArray(".experience-card").forEach((card, i) => {});
 
 			const tl = gsap.timeline();
 			tl.to("#experience-card-wrapper", {
 				scrollTrigger: {
 					trigger: "#experience-card-wrapper",
 					start: `top ${navWidth}`,
+					id: "exp",
 					pin: true, // to pin //".ghost" or pass dom element
 					markers: true,
+					pinSpacing: true,
 				},
-			}).to("#Amazon", {
-				scrollTrigger: {
-					trigger: `#Amazon`,
-					start: "top 70%",
-					toggleActions: "start reverse reverse reverse",
-					scrub: true,
-					id: "Amazon",
-					markers: true,
-				},
-				height: "auto",
 			});
-			// .to("#Fragrancenet", {
-			// 	scrollTrigger: {
-			// 		trigger: `#Fragrancenet`,
-			// 		toggleActions: "start reverse reverse reverse",
-			// 		scrub: true,
-			// 		start: "#Fragrancenet top",
-			// 		id: "Fragrancenet",
-			// 		markers: true,
-			// 	},
-			// 	height: "auto",
-			// });
+
+			tl.to("#Amazon", {
+				scrollTrigger: {
+					trigger: "#Amazon",
+					id: "amazon",
+					markers: true,
+					start: "top 300",
+					end: "+=500",
+					toggleActions: "play none none reverse",
+					scrub: true,
+					pinSpacing: true,
+				},
+				height: "408",
+			});
+
+			tl.to("#Fragrancenet", {
+				scrollTrigger: {
+					trigger: "#Fragrancenet",
+					id: "fragrancenet",
+					markers: true,
+					start: "top",
+					end: "+=500",
+					toggleActions: "play none none reverse",
+					scrub: true,
+					pinSpacing: true,
+				},
+				height: "408",
+			});
 		}, reference); // <- Scope!
 
 		return () => ctx.revert(); // <- Cleanup!
 	}, []);
 
 	return (
-		<section>
-			<Screen id="experience" classNames="p-10">
-				<div ref={reference}>
-					<div id="experience-card-wrapper">
-						<h1 className="text-4xl font-bold">Experience</h1>
-						{experiences.map((item, i) => {
-							return (
-								<div className="mb-5">
-									<div
-										id={item.company}
-										className="experience-card h-20  items-center  overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
-									>
-										<ExperienceCard {...item} />
-									</div>
+		<Screen id="experience" classNames="p-10 h-screen">
+			<div ref={reference} className="100vh">
+				<div id="experience-card-wrapper" className="h-screen">
+					<h1 className="text-4xl font-bold">Experience</h1>
+					{experiences.map((item, i) => {
+						return (
+							<div className="mb-5" key={`key-${item.company}`}>
+								<div
+									id={item.company}
+									className="experience-card h-20   items-center  overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
+								>
+									<ExperienceCard {...item} />
 								</div>
-							);
-						})}
-					</div>
+							</div>
+						);
+					})}
 				</div>
-			</Screen>
-		</section>
+			</div>
+		</Screen>
 	);
 };
 
