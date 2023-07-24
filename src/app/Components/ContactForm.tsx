@@ -1,6 +1,9 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useLayoutEffect, useState } from "react";
 import * as emailjs from "@emailjs/browser";
 import Screen from "./Screen";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { navWidth } from "../Constants";
 
 interface FormProps {
 	name?: string;
@@ -13,6 +16,7 @@ const ContactForm = () => {
 	const [message, setMessage] = useState("");
 	const [messageSent, setMessageSent] = useState(false);
 	const [errors, setErrors] = useState<FormProps>({});
+	const reference = React.useRef<HTMLDivElement>(null);
 
 	const validateForm = () => {
 		const newErrors: FormProps = {};
@@ -61,81 +65,104 @@ const ContactForm = () => {
 		}
 	};
 
+	useLayoutEffect(() => {
+		const ctx = gsap.context(() => {
+			const tl = gsap.timeline();
+			tl.to(".contact-me-form", {
+				scrollTrigger: {
+					trigger: ".form-wrapper",
+					id: "zeroOpac",
+					start: `top ${parseInt(navWidth) + 30}`,
+					end: `top ${parseInt(navWidth)}`,
+					toggleActions: "play none none reverse",
+					markers: true,
+					scrub: true,
+				},
+				duration: 5,
+				scale: 1,
+				opacity: 100,
+			});
+		}, reference); // <- Scope!
+
+		return () => ctx.revert(); // <- Cleanup!
+	}, []);
+
 	return (
-		<Screen
-			id="contactme"
-			classNames="flex flex-col items-center justify-center"
-		>
-			<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
-			<form
-				onSubmit={handleSubmit}
-				className="flex w-[30%] min-w-[450px]  flex-col justify-center text-center"
-			>
-				{messageSent ? (
-					<div>Message has been sent!</div>
-				) : (
-					<>
-						<div>
-							<label className="hidden" htmlFor="name">
-								Name:
-							</label>
-							<input
-								type="text"
-								id="name"
-								className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
-								value={name}
-								placeholder="Name"
-								onChange={(e) => setName(e.target.value)}
-							/>
-							{errors.name && <span>{errors.name}</span>}
-						</div>
+		<Screen id="contactme" classNames="">
+			<div ref={reference} className="h-screen">
+				<div className="form-wrapper flex h-screen  flex-col items-center justify-center">
+					<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
+					<form
+						onSubmit={handleSubmit}
+						className="contact-me-form flex w-[30%] min-w-[450px] flex-col  justify-center text-center opacity-0"
+					>
+						{messageSent ? (
+							<div>Message has been sent!</div>
+						) : (
+							<>
+								<div>
+									<label className="hidden" htmlFor="name">
+										Name:
+									</label>
+									<input
+										type="text"
+										id="name"
+										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
+										value={name}
+										placeholder="Name"
+										onChange={(e) => setName(e.target.value)}
+									/>
+									{errors.name && <span>{errors.name}</span>}
+								</div>
 
-						<div>
-							<label className="hidden" htmlFor="email">
-								Email:
-							</label>
-							<input
-								type="email"
-								className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
-								id="email"
-								value={email}
-								placeholder="Email"
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							{errors.email && <span>{errors.email}</span>}
-						</div>
+								<div>
+									<label className="hidden" htmlFor="email">
+										Email:
+									</label>
+									<input
+										type="email"
+										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
+										id="email"
+										value={email}
+										placeholder="Email"
+										onChange={(e) => setEmail(e.target.value)}
+									/>
+									{errors.email && <span>{errors.email}</span>}
+								</div>
 
-						<div>
-							<label className="hidden" htmlFor="message">
-								Message:
-							</label>
-							<textarea
-								id="message"
-								value={message}
-								className="h-20 w-full border-b-2 border-l-0 border-r-0	border-t-0 border-black p-6 font-raleway focus:outline-none"
-								placeholder="Message"
-								onChange={(e) => setMessage(e.target.value)}
-							/>
-							{errors.message && <span>{errors.message}</span>}
-						</div>
+								<div>
+									<label className="hidden" htmlFor="message">
+										Message:
+									</label>
+									<textarea
+										id="message"
+										value={message}
+										className="h-20 w-full border-b-2 border-l-0 border-r-0	border-t-0 border-black p-6 font-raleway focus:outline-none"
+										placeholder="Message"
+										onChange={(e) => setMessage(e.target.value)}
+									/>
+									{errors.message && <span>{errors.message}</span>}
+								</div>
 
-						<div>
-							<button
-								className="m-5 h-11 w-24 bg-black font-light text-white"
-								type="submit"
-							>
-								SEND
-							</button>
-							<button
-								className="m-5 h-11 w-24 bg-black font-light text-white"
-								type="reset"
-							>
-								RESET
-							</button>
-						</div>
-					</>
-				)}
-			</form>
+								<div>
+									<button
+										className="m-5 h-11 w-24 bg-black font-light text-white"
+										type="submit"
+									>
+										SEND
+									</button>
+									<button
+										className="m-5 h-11 w-24 bg-black font-light text-white"
+										type="reset"
+									>
+										RESET
+									</button>
+								</div>
+							</>
+						)}
+					</form>
+				</div>
+			</div>
 		</Screen>
 	);
 };
