@@ -82,22 +82,22 @@ const Experience = () => {
 				scrollTrigger: {
 					trigger: "#Amazon",
 					start: "top 100",
-					end: "+=500",
+					end: "+=400",
 					toggleActions: "play none none reverse",
 					scrub: true,
 				},
-				height: "408",
+				height: "400",
 			});
 
 			tl.to("#Fragrancenet", {
 				scrollTrigger: {
 					trigger: "#Fragrancenet",
 					start: "top",
-					end: "+=500",
+					end: "+=400",
 					toggleActions: "play none none reverse",
 					scrub: true,
 				},
-				height: "408",
+				height: "400",
 			});
 		}, reference); // <- Scope!
 

@@ -67,20 +67,15 @@ const ContactForm = () => {
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
-			const tl = gsap.timeline();
-			tl.to(".contact-me-form", {
+			gsap.to(".form-wrapper", {
 				scrollTrigger: {
 					trigger: ".form-wrapper",
-					id: "zeroOpac",
-					start: `top ${parseInt(navWidth) + 30}`,
-					end: `top ${parseInt(navWidth)}`,
-					toggleActions: "play none none reverse",
-					markers: true,
-					scrub: true,
+					start: `top ${parseInt(navWidth) + 40}`,
+					toggleActions: "play reset reset reset",
 				},
-				duration: 5,
-				scale: 1,
+				scale: 1.1,
 				opacity: 100,
+				duration: 0.5,
 			});
 		}, reference); // <- Scope!
 
@@ -90,11 +85,11 @@ const ContactForm = () => {
 	return (
 		<Screen id="contactme" classNames="">
 			<div ref={reference} className="h-screen">
-				<div className="form-wrapper flex h-screen  flex-col items-center justify-center">
+				<div className="form-wrapper flex h-screen  flex-col items-center justify-center opacity-0">
 					<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
 					<form
 						onSubmit={handleSubmit}
-						className="contact-me-form flex w-[30%] min-w-[450px] flex-col  justify-center text-center opacity-0"
+						className="contact-me-form flex w-[30%] min-w-[450px] flex-col  justify-center text-center"
 					>
 						{messageSent ? (
 							<div>Message has been sent!</div>
