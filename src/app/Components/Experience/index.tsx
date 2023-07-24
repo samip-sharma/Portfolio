@@ -1,10 +1,12 @@
-import React, { FormEvent, useLayoutEffect, useState } from "react";
+import React, { MutableRefObject, useLayoutEffect } from "react";
 import ExperienceCard from "./ExperienceCard";
-
-import clsx from "clsx";
 import Screen from "../Screen";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { navWidth } from "@/app/Constants";
+// gsap.defaults({ ease: "none", duration: 2 });
+
+gsap.registerPlugin(ScrollTrigger);
 
 // gsap.to(".class", {
 // 	scrollTrigger: {
@@ -76,43 +78,109 @@ const experiences = [
 	},
 ];
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
-	// useLayoutEffect(() => {
-	// 	const ctx = gsap.context((self) => {
-	// 		const boxes = self.selector!(".box");
-	// 		boxes.forEach((box) => {
-	// 			gsap.to(box, {
-	// 				x: 150,
-	// 				scrollTrigger: {
-	// 					trigger: box,
-	// 					start: "bottom bottom",
-	// 					end: "top 20%",
-	// 					scrub: true,
-	// 				},
-	// 			});
-	// 		});
-	// 	}, main); // <- Scope!
-	// 	return () => ctx.revert(); // <- Cleanup!
-	// }, []);
+	const reference = React.useRef<HTMLDivElement>(null);
+	useLayoutEffect(() => {
+		// 	const tl = gsap.timeline();
+
+		const ctx = gsap.context((self) => {
+			// const tl = gsap.timeline();
+			// tl.to("#Amazon", { height: "auto" });
+			// ScrollTrigger.create({
+			// 	animation: tl,
+			// 	trigger: "#Amazon",
+			// 	start: "top 60%",
+			// 	end: () => "+=500",
+			// 	onLeave: () => {
+			// 		gsap.to("#Amazon", { height: "20" });
+			// 	},
+			// 	scrub: true,
+			// 	// pin: "#experience",
+			// 	// snap: 1 / 500, //progress value
+			// 	markers: true,
+			// });
+			// const tl = gsap.timeline();
+			// let card = Array.from(document.querySelectorAll(".experience-card"));
+			// card.forEach((card) => {
+			// tl.to(card[0], {
+			// 	scrollTrigger: {
+			// 		trigger: card[0],
+			// 		start: "top 60%", // when first value hits second value; first value is for .class, second viewport // pixel or value from top
+			// 		end: () => "+=400", // if you want relative from start use "+=300" // use function ()=> "+=" + document.querySelector('.class').offsetWidth
+			// 		scrub: true, // to animate while scrolling //1 to lag animation
+			// 		// pin: true, // to pin //".ghost" or pass dom element
+			// 		markers: true,
+			// 		// id: card[0].id,
+			// 		// first is after entering view port, second after leaving, thrid after comming back from bottom
+			// 		toggleActions: "play none none none", //play pause resume revert restart reset complete none
+			// 		// onLeave: () => {
+			// 		// 	gsap.to(card[0], { height: "20", delay: 0 });
+			// 		// },
+			// 	},
+			// 	height: 400,
+			// 	duration: 3,
+			// }).to(card[0], { height: 20 });
+			// // });
+
+			gsap.utils.toArray(".experience-card").forEach((card, i) => {});
+
+			const tl = gsap.timeline();
+			tl.to("#experience-card-wrapper", {
+				scrollTrigger: {
+					trigger: "#experience-card-wrapper",
+					start: `top ${navWidth}`,
+					pin: true, // to pin //".ghost" or pass dom element
+					markers: true,
+				},
+			}).to("#Amazon", {
+				scrollTrigger: {
+					trigger: `#Amazon`,
+					start: "top 70%",
+					toggleActions: "start reverse reverse reverse",
+					scrub: true,
+					id: "Amazon",
+					markers: true,
+				},
+				height: "auto",
+			});
+			// .to("#Fragrancenet", {
+			// 	scrollTrigger: {
+			// 		trigger: `#Fragrancenet`,
+			// 		toggleActions: "start reverse reverse reverse",
+			// 		scrub: true,
+			// 		start: "#Fragrancenet top",
+			// 		id: "Fragrancenet",
+			// 		markers: true,
+			// 	},
+			// 	height: "auto",
+			// });
+		}, reference); // <- Scope!
+
+		return () => ctx.revert(); // <- Cleanup!
+	}, []);
+
 	return (
 		<section>
 			<Screen id="experience" classNames="p-10">
-				<h1 className="text-4xl font-bold">Experience</h1>
-
-				{experiences.map((item, i) => {
-					return (
-						<div>
-							<div
-								id={item.company}
-								className="items-center rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
-							>
-								<ExperienceCard {...item} />
-							</div>
-						</div>
-					);
-				})}
+				<div ref={reference}>
+					<div id="experience-card-wrapper">
+						<h1 className="text-4xl font-bold">Experience</h1>
+						{experiences.map((item, i) => {
+							return (
+								<div className="mb-5">
+									<div
+										id={item.company}
+										className="experience-card h-20  items-center  overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
+									>
+										<ExperienceCard {...item} />
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
 			</Screen>
 		</section>
 	);

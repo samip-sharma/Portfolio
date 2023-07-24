@@ -34,7 +34,7 @@ const AboutMe: React.FC = () => {
 				scrub: true,
 				pin: document.querySelector("#aboutme"),
 				anticipatePin: 1,
-				markers: true,
+				// markers: true,
 			});
 		}, reference); // <- Scope!
 
@@ -44,13 +44,13 @@ const AboutMe: React.FC = () => {
 	return (
 		<div
 			id="aboutme"
-			className="-mt-[68px] box-border h-screen w-screen"
+			className="relative -mt-[68px] box-border  h-screen w-screen"
 			ref={reference}
 		>
-			<section className="landing absolute h-screen w-screen text-center">
+			<section className="landing absolute w-screen text-center">
 				<Landing />
 			</section>
-			<section className="bio dark:bg[rgb(35,42,65)] absolute -left-full   h-screen w-screen overflow-hidden bg-[rgb(68,112,224)]  dark:text-white">
+			<section className="bio dark:bg[rgb(35,42,65)] absolute -left-full w-screen overflow-hidden bg-[rgb(68,112,224)]  dark:text-white">
 				<Bio />
 			</section>
 		</div>
