@@ -39,7 +39,6 @@ const SvgLaptopMan: React.FC = () => {
 		<div className="svg-image-container">
 			<svg
 				className="laptop-man bg-[rgb(231,138,61)] fill-[rgb(231,138,61)] dark:bg-black dark:fill-black"
-				style={{ cursor: "pointer" }}
 				width="100%"
 				height="100%"
 				viewBox="0 -100 1528 1147"

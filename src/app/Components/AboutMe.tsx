@@ -50,7 +50,7 @@ const AboutMe: React.FC = () => {
 			<section className="landing absolute w-screen text-center">
 				<Landing />
 			</section>
-			<section className="bio dark:bg[rgb(35,42,65)] absolute -left-full w-screen overflow-hidden bg-[rgb(68,112,224)]  dark:text-white">
+			<section className="bio absolute -left-full top-0 w-screen overflow-hidden bg-[rgb(68,112,224)] dark:bg-[rgb(27,29,33)]  dark:text-white">
 				<Bio />
 			</section>
 		</div>

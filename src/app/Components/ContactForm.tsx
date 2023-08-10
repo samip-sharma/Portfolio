@@ -82,10 +82,12 @@ const ContactForm = () => {
 	}, []);
 
 	return (
-		<Screen id="contactme">
+		<Screen id="contactme" classNames="dark:bg-[rgb(27,29,33)]">
 			<div ref={reference}>
 				<div className="form-wrapper flex h-screen  flex-col items-center justify-center">
-					<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
+					<div className="text-center text-3xl font-bold dark:text-white">
+						GET IN TOUCH
+					</div>
 					<form
 						onSubmit={handleSubmit}
 						className="contact-me-form flex w-[30%] min-w-[450px] flex-col  justify-center text-center"
@@ -101,7 +103,7 @@ const ContactForm = () => {
 									<input
 										type="text"
 										id="name"
-										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
+										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0 border-black	p-6 font-raleway focus:outline-none dark:border-white dark:bg-[rgb(27,29,33)]"
 										value={name}
 										placeholder="Name"
 										onChange={(e) => setName(e.target.value)}
@@ -115,7 +117,7 @@ const ContactForm = () => {
 									</label>
 									<input
 										type="email"
-										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none"
+										className="h-13 w-full border-b-2 border-l-0 border-r-0 border-t-0	border-black p-6 font-raleway focus:outline-none dark:border-white dark:bg-[rgb(27,29,33)]"
 										id="email"
 										value={email}
 										placeholder="Email"
@@ -131,7 +133,7 @@ const ContactForm = () => {
 									<textarea
 										id="message"
 										value={message}
-										className="h-20 w-full border-b-2 border-l-0 border-r-0	border-t-0 border-black p-6 font-raleway focus:outline-none"
+										className="h-20 w-full border-b-2 border-l-0 border-r-0	border-t-0 border-black p-6 font-raleway focus:outline-none dark:border-white dark:bg-[rgb(27,29,33)]"
 										placeholder="Message"
 										onChange={(e) => setMessage(e.target.value)}
 									/>

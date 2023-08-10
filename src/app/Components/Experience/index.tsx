@@ -65,10 +65,12 @@ const Experience = () => {
 	const reference = React.useRef<HTMLDivElement>(null);
 	return (
 		<>
-			<Screen id="experience" classNames="p-5 bg-white">
+			<Screen id="experience" classNames="p-5 bg-white dark:bg-[rgb(25,23,29)]">
 				<div ref={reference}>
 					<div className="flex flex-col gap-4">
-						<h1 className="mt-3 text-4xl font-bold">Experience</h1>
+						<h1 className="mt-3 text-4xl font-bold dark:text-white">
+							Experience
+						</h1>
 						{experiences.map((item, i) => {
 							return (
 								<div key={`key-${item.company}`}>

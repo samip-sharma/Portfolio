@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
 						<NavItem key={item.name} {...item} />
 					))}
 				</div>
-				<div className="ml-auto flex flex-row items-center gap-3">
+				<div className="ml-auto flex flex-row items-center  justify-center gap-5">
 					<a
 						className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
 						href="https://docs.google.com/document/d/1G9Ejx1Dd7Qf0ULz6Lt5PogkM4IRrBuaBCNRswm-s7fc/edit"
@@ -55,6 +55,13 @@ const NavBar: React.FC = () => {
 						Resume
 					</a>
 					<HamBurgerMenu handleHamburgerClick={handleHamburgerClick} />
+					<a
+						className="h-[40px] w-[40px] cursor-pointer font-raleway text-sm font-bold dark:text-white"
+						href="https://www.linkedin.com/in/samip-sharma/"
+						target="_blank"
+					>
+						<i className="fa-brands  fa-3x fa-linkedin h-20 w-20 text-black dark:text-white"></i>
+					</a>
 					<NightDarkSwitch />
 				</div>
 			</div>
@@ -72,10 +79,6 @@ const navItems = [
 	{
 		name: "Experience",
 		src: "experience",
-	},
-	{
-		name: "Skills",
-		src: "skills",
 	},
 	{ name: "Contact Me", src: "contactme" },
 ];
