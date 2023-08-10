@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import SvgLaptopMan from "./svgLaptopMan";
+import SvgLaptopMan from "./SvgLaptopMan";
 import AnimatedTypingComponent from "./AnimatedTypingComponent";
 import ChatBot from "./ChatBot";
 
