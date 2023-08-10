@@ -1,6 +1,28 @@
-import { createContext } from "react";
+import React, { ReactNode, createContext, useContext, useState } from "react";
 
-export type ThemeContextType = "light" | "dark";
+// Step 1: Create the context
+export interface ThemeContextType {
+	theme: "light" | "dark";
+	toggleTheme: () => void;
+}
 
-const ThemeContext = createContext<ThemeContextType>("light");
-export default ThemeContext;
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+	undefined,
+);
+
+// Step 2: Create a provider component
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+	children,
+}) => {
+	const [theme, setTheme] = useState<ThemeContextType["theme"]>("light");
+
+	const toggleTheme = () => {
+		setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+	};
+
+	return (
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
+			{children}
+		</ThemeContext.Provider>
+	);
+};

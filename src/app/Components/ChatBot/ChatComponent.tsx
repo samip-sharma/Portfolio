@@ -56,7 +56,8 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message, className }) => {
 	return (
 		<div
 			className={clsx("mb-3 max-w-[75%] rounded-lg p-2 text-left", className, {
-				"self-start bg-gray-200": !message.isUserMessage,
+				"self-start bg-gray-200 dark:bg-gray-600 dark:text-white":
+					!message.isUserMessage,
 				"self-end bg-[rgba(255,70,38,0.8)] text-white": message.isUserMessage,
 			})}
 		>

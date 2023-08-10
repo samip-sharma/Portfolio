@@ -22,13 +22,13 @@ const ExperienceCard: React.FC<ExperienceProps> = ({
 }) => {
 	return (
 		<div>
-			<div className="my-4 flex flex-row gap-7">
-				<h4 className="font-bold">{company}</h4>
+			<div className="flex flex-row items-center gap-7">
+				<h4 className=" item text-2xl font-bold">{company}</h4>
 				<p>{date}</p>
 			</div>
-			<div className="mt-5 flex flex-row justify-around">
+			<div className="mt-3 flex flex-row justify-around gap-5">
 				<div className="basis-1/2">{description}</div>
-				<div className="flex basis-1/2 flex-row  justify-around">
+				<div className="flex basis-1/2 flex-row  justify-around max-sm:flex-col">
 					<div className="flex flex-col">
 						<div className="">
 							<Role role={role} />

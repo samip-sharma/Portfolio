@@ -3,7 +3,7 @@ import * as emailjs from "@emailjs/browser";
 import Screen from "./Screen";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { navWidth } from "../Constants";
+import { navHeight } from "../Constants";
 
 interface FormProps {
 	name?: string;
@@ -66,26 +66,25 @@ const ContactForm = () => {
 	};
 
 	useLayoutEffect(() => {
-		const ctx = gsap.context(() => {
-			gsap.to(".form-wrapper", {
-				scrollTrigger: {
-					trigger: ".form-wrapper",
-					start: `top ${parseInt(navWidth) + 40}`,
-					toggleActions: "play reset reset reset",
-				},
-				scale: 1.1,
-				opacity: 100,
-				duration: 0.5,
-			});
-		}, reference); // <- Scope!
-
-		return () => ctx.revert(); // <- Cleanup!
+		// const ctx = gsap.context(() => {
+		// 	gsap.to(".form-wrapper", {
+		// 		scrollTrigger: {
+		// 			trigger: ".form-wrapper",
+		// 			start: `top ${parseInt(navHeight) + 40}`,
+		// 			toggleActions: "play reset reset reset",
+		// 		},
+		// 		scale: 1.1,
+		// 		opacity: 100,
+		// 		duration: 0.5,
+		// 	});
+		// }, reference); // <- Scope!
+		// return () => ctx.revert(); // <- Cleanup!
 	}, []);
 
 	return (
-		<Screen id="contactme" classNames="">
-			<div ref={reference} className="h-screen">
-				<div className="form-wrapper flex h-screen  flex-col items-center justify-center opacity-0">
+		<Screen id="contactme">
+			<div ref={reference}>
+				<div className="form-wrapper flex h-screen  flex-col items-center justify-center">
 					<div className="text-center text-3xl font-bold">GET IN TOUCH</div>
 					<form
 						onSubmit={handleSubmit}

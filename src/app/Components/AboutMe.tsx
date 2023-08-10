@@ -4,6 +4,7 @@ import Landing from "./Landing";
 import Bio from "./Bio";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { navHeight } from "../Constants";
 gsap.defaults({ ease: "none", duration: 2 });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +34,6 @@ const AboutMe: React.FC = () => {
 				end: () => "+=100%",
 				scrub: true,
 				pin: document.querySelector("#aboutme"),
-				anticipatePin: 1,
 				// markers: true,
 			});
 		}, reference); // <- Scope!
@@ -44,7 +44,7 @@ const AboutMe: React.FC = () => {
 	return (
 		<div
 			id="aboutme"
-			className="relative -mt-[68px] box-border  h-screen w-screen"
+			className={`relative -mt-[${navHeight}] box-border  h-screen w-screen`}
 			ref={reference}
 		>
 			<section className="landing absolute w-screen text-center">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import NavBar from "./Components/NavBar";
 import AboutMe from "./Components/AboutMe";
 import ContactForm from "./Components/ContactForm";
@@ -10,9 +10,19 @@ import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 import "@fortawesome/fontawesome-free/css/regular.min.css";
 import "@fortawesome/fontawesome-free/css/solid.min.css";
 import "@fortawesome/fontawesome-free/css/brands.min.css";
+import { useTheme } from "./Hooks/useTheme";
+import { ThemeProvider } from "./Context/Theme";
 
 const App: React.FC = () => {
-	const [theme, setTheme] = useState<"light" | "dark">("light");
+	return (
+		<ThemeProvider>
+			<Pages />
+		</ThemeProvider>
+	);
+};
+
+const Pages: React.FC = () => {
+	const { theme } = useTheme();
 	return (
 		<div className={theme}>
 			<NavBar />

@@ -3,7 +3,6 @@ import ExperienceCard from "./ExperienceCard";
 import Screen from "../Screen";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { navWidth } from "@/app/Constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +55,6 @@ const experiences = [
 			"Adyen",
 			"JQuery",
 			"MySQL",
-			"Trustpilot",
 		],
 	},
 ];
@@ -65,57 +63,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
 	const reference = React.useRef<HTMLDivElement>(null);
-	useLayoutEffect(() => {
-		const ctx = gsap.context(() => {
-			const tl = gsap.timeline();
-			tl.to("#experience-card-wrapper", {
-				scrollTrigger: {
-					trigger: "#experience-card-wrapper",
-					start: `top ${navWidth}`,
-					end: "+=100%",
-					pin: true,
-					pinSpacing: true,
-				},
-			});
-
-			tl.to("#Amazon", {
-				scrollTrigger: {
-					trigger: "#Amazon",
-					start: "top 100",
-					end: "+=400",
-					toggleActions: "play none none reverse",
-					scrub: true,
-				},
-				height: "400",
-			});
-
-			tl.to("#Fragrancenet", {
-				scrollTrigger: {
-					trigger: "#Fragrancenet",
-					start: "top",
-					end: "+=400",
-					toggleActions: "play none none reverse",
-					scrub: true,
-				},
-				height: "400",
-			});
-		}, reference); // <- Scope!
-
-		return () => ctx.revert(); // <- Cleanup!
-	}, []);
-
 	return (
 		<>
-			<Screen id="experience" classNames="p-10 h-screen mb-10 bg-white">
+			<Screen id="experience" classNames="p-5 bg-white">
 				<div ref={reference}>
-					<div id="experience-card-wrapper">
-						<h1 className="text-4xl font-bold">Experience</h1>
+					<div className="flex flex-col gap-4">
+						<h1 className="mt-3 text-4xl font-bold">Experience</h1>
 						{experiences.map((item, i) => {
 							return (
-								<div className="mb-5" key={`key-${item.company}`}>
+								<div key={`key-${item.company}`}>
 									<div
 										id={item.company}
-										className="experience-card h-20   items-center  overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
+										className="experience-card items-center  overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow  dark:border-gray-700 dark:bg-gray-800"
 									>
 										<ExperienceCard {...item} />
 									</div>
