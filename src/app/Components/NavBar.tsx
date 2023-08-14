@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
 						href="https://www.linkedin.com/in/samip-sharma/"
 						target="_blank"
 					>
-						<i className="fa-brands  fa-3x fa-linkedin h-20 w-20 text-black dark:text-white"></i>
+						<i className="fa-brands  fa-3x fa-linkedin h-20 w-20 text-[rgb(30,48,80)] dark:text-white"></i>
 					</a>
 					<NightDarkSwitch />
 				</div>

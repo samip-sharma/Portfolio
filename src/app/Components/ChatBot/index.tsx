@@ -37,17 +37,14 @@ const ChatBot: React.FC = () => {
 	const callGpt = async (message: string) => {
 		if (!process.env.NEXT_PUBLIC_CHATBOT_API)
 			console.error("NEXT_PUBLIC_CHATBOT_API not present");
-		const response = await fetch(
-			process.env.NEXT_PUBLIC_CHATBOT_API || "http://localhost:3000/",
-			{
-				method: "POST",
-				mode: "cors",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ message }),
+		const response = await fetch("/api/chatbot", {
+			method: "POST",
+			mode: "cors",
+			headers: {
+				"Content-Type": "application/json",
 			},
-		);
+			body: JSON.stringify({ message }),
+		});
 		setIsLoading(false);
 		return response.json();
 	};
