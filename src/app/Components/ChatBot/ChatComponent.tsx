@@ -104,7 +104,7 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 	return (
 		<div
 			className={clsx(
-				"flex h-[60%] w-[32rem] max-w-screen-sm flex-col rounded-lg bg-[rgb(234,212,194)] p-3 transition-all duration-700 dark:bg-[rgb(27,29,33)]",
+				"flex h-[60%] w-[32rem] flex-col rounded-lg bg-[rgb(234,212,194)] p-3 transition-all duration-700 dark:bg-[rgb(27,29,33)]  max-sm:w-screen",
 				dynamicClassName,
 			)}
 		>
