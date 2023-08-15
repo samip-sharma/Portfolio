@@ -39,30 +39,48 @@ const NavBar: React.FC = () => {
 				<div
 					className={clsx(
 						"nav-items flex h-full w-full items-center  justify-start  gap-10 pl-20 max-sm:justify-center",
-						isMenuOpen && "nav-items-open open ",
+						isMenuOpen && "nav-items-open open gap-20",
 					)}
 				>
 					{navItems.map((item) => (
 						<NavItem key={item.name} {...item} />
 					))}
+					<div className="mt-70 flex flex-row  items-center justify-center gap-5">
+						<a
+							className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
+							href="https://docs.google.com/document/d/1G9Ejx1Dd7Qf0ULz6Lt5PogkM4IRrBuaBCNRswm-s7fc/edit"
+							target="_blank"
+						>
+							Resume
+						</a>
+						<a
+							className="h-[40px] w-[40px] cursor-pointer font-raleway text-sm font-bold dark:text-white"
+							href="https://www.linkedin.com/in/samip-sharma/"
+							target="_blank"
+						>
+							<i className="fa-brands  fa-3x fa-linkedin h-[20px] w-[20px] text-[rgb(30,48,80)] dark:text-white"></i>
+						</a>
+					</div>
 				</div>
 				<div className="ml-auto flex flex-row items-center  justify-center gap-5">
-					<a
-						className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
-						href="https://docs.google.com/document/d/1G9Ejx1Dd7Qf0ULz6Lt5PogkM4IRrBuaBCNRswm-s7fc/edit"
-						target="_blank"
-					>
-						Resume
-					</a>
-					<HamBurgerMenu handleHamburgerClick={handleHamburgerClick} />
-					<a
-						className="h-[40px] w-[40px] cursor-pointer font-raleway text-sm font-bold dark:text-white"
-						href="https://www.linkedin.com/in/samip-sharma/"
-						target="_blank"
-					>
-						<i className="fa-brands  fa-3x fa-linkedin h-20 w-20 text-[rgb(30,48,80)] dark:text-white"></i>
-					</a>
+					<div className="flex flex-row items-center  justify-center gap-5 max-sm:hidden">
+						<a
+							className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
+							href="https://docs.google.com/document/d/1G9Ejx1Dd7Qf0ULz6Lt5PogkM4IRrBuaBCNRswm-s7fc/edit"
+							target="_blank"
+						>
+							Resume
+						</a>
+						<a
+							className="h-[40px] w-[40px] cursor-pointer font-raleway text-sm font-bold dark:text-white"
+							href="https://www.linkedin.com/in/samip-sharma/"
+							target="_blank"
+						>
+							<i className="fa-brands  fa-3x fa-linkedin h-[20px] w-[20px] text-[rgb(30,48,80)] dark:text-white"></i>
+						</a>
+					</div>
 					<NightDarkSwitch />
+					<HamBurgerMenu handleHamburgerClick={handleHamburgerClick} />
 				</div>
 			</div>
 		</nav>
