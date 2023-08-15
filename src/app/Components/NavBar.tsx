@@ -45,7 +45,7 @@ const NavBar: React.FC = () => {
 					{navItems.map((item) => (
 						<NavItem key={item.name} {...item} onClick={handleLinkClick} />
 					))}
-					<div className="mt-70 flex flex-row  items-center justify-center gap-5">
+					<div className="mt-70 flex flex-row  items-center justify-center gap-5 sm:hidden">
 						<a
 							className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
 							href="https://docs.google.com/document/d/1G9Ejx1Dd7Qf0ULz6Lt5PogkM4IRrBuaBCNRswm-s7fc/edit"
