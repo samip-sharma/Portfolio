@@ -9,7 +9,7 @@ const NightDarkSwitch: React.FC = () => {
 	return (
 		<>
 			<input onClick={toggleTheme} type="checkbox" id="darkmode-toggle" />
-			<label className="dark-theme-switch" for="darkmode-toggle">
+			<label className="dark-theme-switch" htmlFor="darkmode-toggle">
 				<svg
 					version="1.1"
 					className="sun"

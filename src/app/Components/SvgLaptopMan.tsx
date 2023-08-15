@@ -23,7 +23,7 @@ const SvgLaptopMan: React.FC = () => {
 			rotation: rotation,
 			transformOrigin: "50% 100%",
 		});
-	}, []);
+	}, [clockTl, tl]);
 
 	useEffect(() => {
 		if (theme === "light") {
@@ -33,7 +33,7 @@ const SvgLaptopMan: React.FC = () => {
 		}
 		setPlayed(!played);
 		clockTl.restart();
-	}, [theme]);
+	}, [clockTl, played, theme, tl]);
 
 	return (
 		<div className="svg-image-container">

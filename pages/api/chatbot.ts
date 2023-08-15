@@ -8,7 +8,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-	console.log(process.env.OPENAI_API_KEY);
 	if (req.method === "POST") {
 		if (!configuration.apiKey) {
 			res.status(500).json({

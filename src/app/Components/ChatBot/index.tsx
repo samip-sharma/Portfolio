@@ -54,7 +54,6 @@ const ChatBot: React.FC = () => {
 			messages={messages}
 			onUserMessage={handleUserMessage}
 			isLoading={isLoading}
-			setIsLoading={setIsLoading}
 		/>
 	);
 };
