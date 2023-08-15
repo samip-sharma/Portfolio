@@ -17,13 +17,13 @@ const NavBar: React.FC = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
-	const handleLinksClick = () => {
-		const navLinks = document.querySelector(".nav-items");
-		navLinks?.classList.toggle("open");
-	};
-
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+	const handleLinkClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+		const url = new window.URL(e.currentTarget.href);
+		document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth" });
+		setIsMenuOpen(false);
+	};
 	return (
 		<nav
 			className={`sticky top-0 z-50 h-[${navHeight}] bg-white p-4 shadow-md dark:bg-black dark:shadow-white`}
@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
 					)}
 				>
 					{navItems.map((item) => (
-						<NavItem key={item.name} {...item} />
+						<NavItem key={item.name} {...item} onClick={handleLinkClick} />
 					))}
 					<div className="mt-70 flex flex-row  items-center justify-center gap-5">
 						<a

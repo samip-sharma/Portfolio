@@ -3,7 +3,7 @@ import Image from "next/image";
 import samipPic from "../Assets/image/samip.jpg";
 
 const Bio: React.FC = () => (
-	<div className="relative flex h-screen  flex-row justify-between  px-10 py-24  text-white max-md:flex-col">
+	<div className="relative flex h-screen  flex-row justify-between  text-white max-md:flex-col  sm:px-10 sm:py-24">
 		<div className="items-centers flex flex-col justify-center p-10 text-center">
 			<h1 className="font-rubik text-[35px] font-bold ">SAMIP SHARMA</h1>
 			<br />

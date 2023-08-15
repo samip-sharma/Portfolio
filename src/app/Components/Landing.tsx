@@ -8,7 +8,9 @@ const Landing: React.FC = () => (
 	<div className="relative flex h-screen w-full flex-row justify-center bg-[rgb(231,138,61)] max-sm:flex-col">
 		<SvgLaptopMan />
 		<div className="tweenBackground flex flex-col items-center justify-center gap-10  dark:bg-black">
-			<AnimatedTypingComponent />
+			<div className="max-sm:hidden">
+				<AnimatedTypingComponent />
+			</div>
 			<ChatBot />
 		</div>
 	</div>

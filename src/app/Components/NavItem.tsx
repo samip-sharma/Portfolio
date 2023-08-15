@@ -3,17 +3,12 @@
 interface NavItemProps {
 	name: string;
 	src: string;
+	onClick: React.MouseEventHandler<HTMLAnchorElement>;
 }
-const NavItem: React.FC<NavItemProps> = ({ name, src }) => {
-	const handleLinkClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
-		const url = new window.URL(e.currentTarget.href);
-
-		document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth" });
-	};
-
+const NavItem: React.FC<NavItemProps> = ({ name, src, onClick }) => {
 	return (
 		<a
-			onClick={handleLinkClick}
+			onClick={onClick}
 			href={`#${src}`}
 			className="cursor-pointer font-raleway text-sm font-bold dark:text-white"
 		>

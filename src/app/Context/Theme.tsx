@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useContext, useState } from "react";
+import React, { ReactNode, createContext, useState } from "react";
 
 // Step 1: Create the context
 export interface ThemeContextType {

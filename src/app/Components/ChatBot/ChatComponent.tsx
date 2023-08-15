@@ -115,7 +115,7 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
 						<ChatMessage
 							key={message.id}
 							message={message}
-							className="bg-gray-700 italic opacity-30"
+							className="bg-gray-700 italic opacity-30 "
 						/>
 					))}
 				{messages.map((message) => (
