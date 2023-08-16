@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React from "react";
 import SubHeading from "./SubHeading";
 
 const Role: React.FC<{ role: string }> = ({ role }) => {

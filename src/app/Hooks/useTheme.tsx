@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ThemeContextType, ThemeContext } from "../Context/Theme";
 
-// Step 3: Create a consumer hook
 export const useTheme = (): ThemeContextType => {
 	const context = useContext(ThemeContext);
 	if (!context) {

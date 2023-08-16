@@ -1,6 +1,3 @@
-import { LegacyRef } from "react";
-import { navHeight } from "../Constants";
-
 interface ScreenProps {
 	classNames?: string;
 	children?: React.ReactNode;

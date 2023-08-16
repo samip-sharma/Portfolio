@@ -12,19 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutMe: React.FC = () => {
 	const reference = React.useRef<HTMLDivElement | null>(null);
 	useLayoutEffect(() => {
-		const ctx = gsap.context((self) => {
-			// gsap.fromTo(".bio", {
-			// 	scrollTrigger: {
-			// 		trigger: "#aboutme",
-			// 		start: "top top", // first value is for .class, second viewport // pixel or value from top
-			// 		end: "bottom 100px", // if you want relative from start use "+=300" // use function ()=> "+=" + document.querySelector('.class').offsetWidth
-			// 		scrub: true, // to animate while scrolling //1 to lag animation
-			// 		pin: true, // to pin //".ghost" or pass dom element
-			// 		markers: true,
-			// 		anticipatePin: 1,
-			// 	},
-			// 	xPercent: -100,
-			// });
+		const ctx = gsap.context(() => {
 			const tl = gsap.timeline();
 			tl.to(".bio", { xPercent: 100 });
 			ScrollTrigger.create({

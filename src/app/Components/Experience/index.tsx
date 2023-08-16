@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useLayoutEffect } from "react";
+import React from "react";
 import ExperienceCard from "./ExperienceCard";
 import Screen from "../Screen";
 import { gsap } from "gsap";

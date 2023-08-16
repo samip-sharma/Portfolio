@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React from "react";
 import Role from "./Role";
 import Responsibilities from "./Responsibilities";
 import Tools from "./Tools";

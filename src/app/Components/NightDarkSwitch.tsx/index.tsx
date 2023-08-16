@@ -1,4 +1,3 @@
-//react typescript functional component
 import React from "react";
 import "./index.css";
 import { useTheme } from "@/app/Hooks/useTheme";

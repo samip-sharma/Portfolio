@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import React, { Component, useContext, useEffect } from "react";
+import React from "react";
 import NavItem from "./NavItem";
 import clsx from "clsx";
 import "../app.css";
@@ -9,10 +8,6 @@ import { navHeight } from "../Constants";
 import NightDarkSwitch from "./NightDarkSwitch.tsx";
 
 const NavBar: React.FC = () => {
-	const scrollToTop = () => {
-		//scroll to top
-	};
-
 	const handleHamburgerClick = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
