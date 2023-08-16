@@ -5,7 +5,7 @@ import Bio from "./Bio";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { navHeight } from "../Constants";
-gsap.defaults({ ease: "none", duration: 2 });
+gsap.defaults({});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +17,7 @@ const AboutMe: React.FC = () => {
 			tl.to(".bio", { xPercent: 100 });
 			ScrollTrigger.create({
 				animation: tl,
-				trigger: "#aboutme",
+				trigger: document.querySelector("#aboutme"),
 				start: "top top",
 				end: () => "+=100%",
 				scrub: true,
