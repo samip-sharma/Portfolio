@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 //converting class component to functional component
 import React, { useEffect } from "react";
 import gsap from "gsap";
@@ -23,7 +24,7 @@ const SvgLaptopMan: React.FC = () => {
 			rotation: rotation,
 			transformOrigin: "50% 100%",
 		});
-	}, [clockTl, tl]);
+	}, []);
 
 	useEffect(() => {
 		if (theme === "light") {
@@ -33,7 +34,7 @@ const SvgLaptopMan: React.FC = () => {
 		}
 		setPlayed(!played);
 		clockTl.restart();
-	}, [clockTl, played, theme, tl]);
+	}, [theme]);
 
 	return (
 		<div className="svg-image-container">
