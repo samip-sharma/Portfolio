@@ -5,10 +5,10 @@ import AnimatedTypingComponent from "./AnimatedTypingComponent";
 import ChatBot from "./ChatBot";
 
 const Landing: React.FC = () => (
-	<div className="relative flex h-screen w-full flex-row justify-center bg-[rgb(231,138,61)] max-sm:flex-col">
+	<div className="relative flex h-screen basis-6/12 flex-row justify-center bg-[rgb(231,138,61)] max-sm:flex-col">
 		<SvgLaptopMan />
-		<div className="tweenBackground flex flex-col items-center gap-10  dark:bg-black">
-			<div className="max-sm:hidden">
+		<div className="tweenBackground flex basis-6/12 flex-col items-center  gap-10 dark:bg-black">
+			<div className="shrink max-sm:hidden  sm:mt-20 sm:h-20">
 				<AnimatedTypingComponent />
 			</div>
 			<ChatBot />

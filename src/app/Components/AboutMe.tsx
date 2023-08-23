@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { navHeight } from "../Constants";
 gsap.defaults({});
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe: React.FC = () => {
 	const reference = React.useRef<HTMLDivElement | null>(null);
@@ -32,10 +32,10 @@ const AboutMe: React.FC = () => {
 	return (
 		<div
 			id="aboutme"
-			className={`relative -mt-[${navHeight}] box-border  h-screen w-screen`}
+			className={`relative -mt-[${navHeight}] box-border h-screen w-screen`}
 			ref={reference}
 		>
-			<section className="landing absolute w-screen text-center">
+			<section className="landing absolute h-screen w-screen w-screen text-center">
 				<Landing />
 			</section>
 			<section className="bio absolute -left-full top-0 w-screen overflow-hidden bg-[rgb(104,104,246)] dark:bg-[rgb(27,29,33)]  dark:text-white">
