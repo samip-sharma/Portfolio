@@ -1,5 +1,3 @@
-"use client";
-
 interface NavItemProps {
 	name: string;
 	src: string;

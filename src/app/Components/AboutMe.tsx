@@ -1,4 +1,3 @@
-"use client";
 import React, { useLayoutEffect } from "react";
 import Landing from "./Landing";
 import Bio from "./Bio";
@@ -35,7 +34,7 @@ const AboutMe: React.FC = () => {
 			className={`relative -mt-[${navHeight}] box-border h-screen w-screen`}
 			ref={reference}
 		>
-			<section className="landing absolute h-screen w-screen w-screen text-center">
+			<section className="landing absolute h-screen w-screen text-center">
 				<Landing />
 			</section>
 			<section className="bio absolute -left-full top-0 w-screen overflow-hidden bg-[rgb(104,104,246)] dark:bg-[rgb(27,29,33)]  dark:text-white">
