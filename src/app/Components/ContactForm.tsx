@@ -1,3 +1,4 @@
+"use client";
 import React, { FormEvent, useLayoutEffect, useState } from "react";
 import * as emailjs from "@emailjs/browser";
 import Screen from "./Screen";

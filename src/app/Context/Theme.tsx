@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, createContext, useState } from "react";
 
 export interface ThemeContextType {

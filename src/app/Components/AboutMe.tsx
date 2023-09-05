@@ -1,3 +1,4 @@
+"use client";
 import React, { useLayoutEffect } from "react";
 import Landing from "./Landing";
 import Bio from "./Bio";
